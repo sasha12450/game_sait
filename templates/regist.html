@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+	<title></title>
+</head>
+<body>
+<form action="/register/add" method="post">
+  <div class="container">
+  	<center><p>Имя</p>
+    <input type="text" placeholder="Имя" name="user_name" required>
+
+    <p>Email</p>
+    <input type="text" placeholder="Email" name="email" required>
+
+    <p>Пороль</p>
+    <input type="password" placeholder="Password" name="psw" required>
+
+    <p>Повторить пороль</p>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+     <div class="checkbox">
+      <br> 
+      <input type="checkbox" id="terms" required>
+      <label for="click" class="text"> Вы соглашаетесь с <a href="#">лицинзионным соглашением </a>.</label>
+
+    </div>
+   <button type="submit" class="registerbtn">Зарегистрироваться</button>
+  </div>
+    {% if is_exist %}
+    <div>
+        <p>Имя пользователя или email уже используется</p>
+    </div>
+    {% endif %}
+    {% if false_psw %}
+    <div>
+        <p>Пороли не совпадают</p>
+    </div>
+    {% endif %}
+  <div class="container sinin">
+
+  </div>
+
+</form>
+</body>
+</html>

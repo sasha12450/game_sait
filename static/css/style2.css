@@ -1,0 +1,52 @@
+body {
+
+background-image: url(img/221.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+
+* {box-sizing: border-box}
+
+.container {
+  padding: 11px;
+}
+
+
+input[type=text], input[type=password] {
+  width: 38%;
+  padding: 15px;
+
+  display: inline-block;
+  border: none;
+  background: whitesmoke;
+  align: center;
+}
+
+
+
+.registerbtn {
+  background-color: whitesmoke;
+
+  padding: 8px , 0px, 10px, 0px;
+  margin: 20px;
+  border: none;
+
+  width: 38%;
+  height: 40px;
+  opacity: 0.9;
+}
+
+
+
+a {
+  color: dodgerblue;
+}
+
+
+.signin {
+  background-color: f6ef;
+  text-align: center;
+  width: 48%;
+
+}

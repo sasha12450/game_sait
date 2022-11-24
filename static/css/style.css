@@ -1,0 +1,117 @@
+
+body {
+
+background-image: url(img/bg_3.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size:cover;
+font-family: Arial;
+
+}
+#main{
+	width:100%;
+	margin:auto;
+
+  
+}
+#header{
+	text-align: center;
+	height:100px;
+	font-family: Odalisque Deco;
+	font-size: 50px;
+	
+}
+#menu{
+	background-color:rgba(0, 0, 0, 1.0) ;
+	height:100px;
+	width: 100%;
+	font-family: Italic,	
+}
+#content{
+	background-color:rgba(0, 0, 0, 0.7) ;
+	min-height:750;
+	text-align: justify;
+	padding: 30px;
+	color: white;
+
+}
+
+.p_menu {
+	float: left;
+	height: 100%;
+	width: 300px;
+	text-align: center;
+}
+p{
+  font-size: 20pt;
+}
+
+
+.closing-button {
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  color: white;
+  box-shadow: 0 0 0 2px white;
+  padding: 20px 0;
+  width: 250px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.closing-button span {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  z-index: 5;
+}
+.closing-button:before, .closing-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.closing-button:before {
+  transform: translateX(-100%);
+  background: white;
+  transition: transform .3s cubic-bezier(.55, .055, .675, .19);
+}
+.closing-button:after {
+    background: linear-gradient( Maroon, Red);
+  transform: translateX(100%);
+  transition: transform .3s cubic-bezier(.16, .73, .58, .62) .3s;
+}
+.closing-button:hover:before, .closing-button:hover:after {
+  transform: translateX(0);
+}
+.wrapper{
+color:#02b9ff
+}
+
+.button {
+  background-color: #1a3013;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
