@@ -10,8 +10,9 @@ background-attachment: fixed;
 
 .container {
   padding: 11px;
-}
 
+
+}
 
 input[type=text], input[type=password] {
   width: 38%;

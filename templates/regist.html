@@ -6,8 +6,9 @@
 	<title></title>
 </head>
 <body>
+  <div style="background: black;  padding: 18px 8px; color: white;background-color:rgba(0, 0, 0, 0.7) ;">
 <form action="/register/add" method="post">
-  <div class="container">
+  <center><div class="container">
   	<center><p>Имя</p>
     <input type="text" placeholder="Имя" name="user_name" required>
 
@@ -20,14 +21,14 @@
     <p>Повторить пороль</p>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-     <div class="checkbox">
+     <div class="checkbox" >
       <br> 
       <input type="checkbox" id="terms" required>
       <label for="click" class="text"> Вы соглашаетесь с <a href="#">лицинзионным соглашением </a>.</label>
 
-    </div>
-   <button type="submit" class="registerbtn">Зарегистрироваться</button>
-  </div>
+    </div >
+   <button type="submit" class="registerbtn">Зарегистрироваться</button></center>
+  </div >
     {% if is_exist %}
     <div>
         <p>Имя пользователя или email уже используется</p>
@@ -41,7 +42,7 @@
   <div class="container sinin">
 
   </div>
-
+</div>
 </form>
 </body>
 </html>

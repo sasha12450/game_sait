@@ -54,24 +54,22 @@ def register_page_add():
             "psw-repeat": request.form["psw-repeat"]}
 
     query = db.session.query(User).filter_by(user_name=data["user_name"]).first()
-    query2 = db.session.query(User).filter_by(user_name=data["email"]).first()
+    query2 = db.session.query(User).filter_by(email=data["email"]).first()
 
-    try:
-        query.user_name
-        query2.email
+    if query  != None or query2 != None:
         return render_template("regist.html", is_exist=True, false_psw=False)
-    except:
 
-        if data["password"] == data["psw-repeat"]:
 
-            user = User(user_name= data["user_name"],
-                        email= data["email"],
-                        password= data["password"],
-                        grade =0)
-            db.session.add(user)
-            db.session.commit()
-            return render_template("home.html")
-        return render_template("regist.html", is_exist=False, false_psw=True)
+    if data["password"] == data["psw-repeat"]:
+
+        user = User(user_name= data["user_name"],
+                    email= data["email"],
+                    password= data["password"],
+                    grade =0)
+        db.session.add(user)
+        db.session.commit()
+        return render_template("home.html")
+    return render_template("regist.html", is_exist=False, false_psw=True)
 
 
 
