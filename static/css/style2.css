@@ -15,7 +15,7 @@ background-attachment: fixed;
 }
 
 input[type=text], input[type=password] {
-  width: 38%;
+  width: 60%;
   padding: 15px;
 
   display: inline-block;

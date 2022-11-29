@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<head>
+<head xmlns="http://www.w3.org/1999/html">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
 	<title></title>
 </head>
 <body>
-  <div style="background: black;  padding: 18px 8px; color: white;background-color:rgba(0, 0, 0, 0.7) ;">
+
 <form action="/register/add" method="post">
   <center><div class="container">
+      <div style="background: black;  width: 60%; color: white;background-color:rgba(0, 0, 0, 0.7) ; margin-top: 120px;">
+          <br>
   	<center><p>Имя</p>
+
     <input type="text" placeholder="Имя" name="user_name" required>
 
     <p>Email</p>
@@ -21,27 +24,23 @@
     <p>Повторить пороль</p>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-     <div class="checkbox" >
-      <br> 
-      <input type="checkbox" id="terms" required>
-      <label for="click" class="text"> Вы соглашаетесь с <a href="#">лицинзионным соглашением </a>.</label>
-
-    </div >
-   <button type="submit" class="registerbtn">Зарегистрироваться</button></center>
-  </div >
+     <div>
     {% if is_exist %}
-    <div>
-        <p>Имя пользователя или email уже используется</p>
-    </div>
+
+        <p style="color:red;">Имя пользователя или email уже используется</p>
+
     {% endif %}
     {% if false_psw %}
-    <div>
-        <p>Пороли не совпадают</p>
-    </div>
-    {% endif %}
-  <div class="container sinin">
 
-  </div>
+        <p style="color:red;">Пороли не совпадают</p>
+
+    {% endif %}
+     </div>
+
+<button type="submit" class="registerbtn">Зарегистрироваться</button></center>
+    </div >
+
+
 </div>
 </form>
 </body>
