@@ -1,0 +1,71 @@
+.games-card {
+    position: relative
+}
+
+@media (max-width: 768px) {
+    .games-card {
+        height: 150px;
+        overflow: hidden
+    }
+
+    .games-card.enaza {
+        height: 250px
+    }
+}
+
+.games-card-title {
+    font-size: 16px;
+    line-height: 19px
+}
+
+@media (max-width: 768px) {
+    .games-card-title {
+        height: 100%
+    }
+}
+
+.games-card-image {
+    border-radius: 5px 5px 0 0;
+    height: 150px;
+    min-height: 150px
+}
+
+.games-card-image.enaza {
+    height: 250px;
+    min-height: 250px
+}
+
+@media (max-width: 768px) {
+    .games-card-image {
+        width: -moz-fit-content;
+        width: fit-content;
+        border-radius: 5px 0 0 5px
+    }
+}
+
+.games-card-pay-methods {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 9px
+}
+
+@media (max-width: 768px) {
+    .games-card-pay-methods {
+        position: absolute;
+        left: 5px;
+        bottom: 5px
+    }
+}
+
+.games-card-pay-methods > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 32px;
+    background: hsla(0, 0%, 100%, .5);
+    border-radius: 5px
+}

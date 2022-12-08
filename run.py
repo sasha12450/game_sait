@@ -37,23 +37,24 @@ class Ad_table(db.Model):
 
 @app.route("/")
 def main_page():
-    data=db.session.query(Ad_table).first()
-    data= {"short_desc":data.short_desc,
-           "full_desc":data.full_desc,
-           "type_ad":data.type_ad,
-           "type_bust":data.type_bust,
-           "type_LBZ":data.type_LBZ,
-           "server":data.server,
-           "fights_count":data.fights_count,
-           "win_rait": data.win_rait,
-           "raiting": data.raiting,
-           "wn8": data.wn8,
-           "count": data.count,
-           "price": data.price,
-
-           }
+    data=db.session.query(Ad_table).all()
+    end_data_list = []
+    for post in data:
+        end_data_list.append( {"short_desc":post.short_desc,
+               "full_desc":post.full_desc,
+               "type_ad":post.type_ad,
+               "type_bust":post.type_bust,
+               "type_LBZ":post.type_LBZ,
+               "server":post.server,
+               "fights_count":post.fights_count,
+               "win_rait": post.win_rait,
+               "raiting": post.raiting,
+               "wn8": post.wn8,
+               "count": post.count,
+               "price": post.price,
+               "trader_id": post.trader_id,                })
     print(data)
-    return render_template("home.html", ad=data)
+    return render_template("mainpage.html", ad=end_data_list)
 
 # with app.app_context(): #Создает базу данных
 #     db.create_all()
