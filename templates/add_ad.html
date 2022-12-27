@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Создание объявления</title>
+</head>
+<body>
+<div style="background: black;  width: 100%; color: white; background-color:rgba(0, 0, 0, 0.7) ;height: 400px;">
+<form action="/add_ad/created" method="post" style="margin: 15px 25px 35px 45px; ">
+    <br>
+    <p>Короткое описание</p>
+    <input type="text" name="short_desc" size="40" style="background: #25567B; height: 30px; color:#babcbb;">
+    <br>
+    <p>Сервер:  Тип объявления: </p>
+    <select name="server" style="background: #66A3D2;">
+        <option value="ru">Россия</option>
+        <option value="eu">Европа</option>
+        <option value="ch">Китай</option>
+        <option value="us">США</option>
+        <option value="sea">Корея</option>
+    </select>
+
+    <select name="type_ad" style="background: #66A3D2;">
+        <option value="account">Аккаунт</option>
+        <option value="bust">Буст</option>
+        <option value="klan">Кланы</option>
+        <option value="bonus_kod">Бонус коды</option>
+        <option value="lbz">ЛБЗ</option>
+        <option value="farm">Фарм</option>
+        <option value="other">Прочее</option>
+    </select>
+    <br>
+    <div class="user-box">
+    ЛБЗ 1.0 <input type="radio" name="type_LBZ" value="1.0" >
+    <br>
+    ЛБЗ 2.0 <input type="radio" name="type_LBZ" value="2.0">
+    <br>
+
+    Количество боев: <input type="text" name="fights_count" size="3" style="background: #25567B; color: white;">
+    Процент побед: <input type="text" name="win_rait" size="3" style="background: #25567B; color: white;">
+    WN8: <input type="text" name="WN8" size="3" style="background: #25567B; color: white;">
+    Рейтинг: <input type="text" name="raiting" size="3" style="background: #25567B; color: white;">
+    <br>
+     <br>
+    Количество: <input type="text" name="count" size="3" style="background: #25567B; color: white;">
+    Цена: <input type="text" name="price" size="3" style="background: #25567B; color: white;">
+    <br>
+        <br>
+    <div style="weight: 550px">
+    Полное описание:
+     <br>
+    <textarea name="full_desc"  style="background: #25567B; color: white;"></textarea>
+     <br>
+    </div>
+
+    <input type="submit" value="Отправить" style="background: #0B61A4;">
+
+
+    <style>
+  body {
+    background-color: #033E6B;
+}
+
+
+
+    </style>
+    </div>
+</form>
+</body>
+</html>

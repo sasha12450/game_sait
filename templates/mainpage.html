@@ -38,46 +38,69 @@
     </div>
     <div id="content">
         <div>
+            {% if page_type.account %}
             <h1>Аккаунты World of Tanks</h1>
             <p>Предлагаем вам аккаунты World of Tanks напрямую от игроков по самой низкой цене в Рунете. Получите лучшие
                 танки и достойную статистику без скучной прокачки и временных затрат! Все сделки на бирже FunPay
                 защищены гарантом. Нашим пользователям разрешено продавать аккаунты, полученные только легальным
                 путем.</p>
+            {% endif %}
+            {% if page_type.bust %}
+            <h1>Буст World of Tanks</h1>
+            <p>Предлагаем вам быстрый и эффективный буст аккаунтов WoT опытными драйверами по реальным рыночным ценам! С FunPay прокачка танков, поднятие статистики и ранговые бои превращаются в удовольствие, ведь вы получаете нужный результат в кратчайшие сроки. Мы гарантируем безопасность всех сделок.</p>
+            {% endif %}
+            {% if page_type.klan %}
+            <h1>Кланы World of Tanks</h1>
+            <p>Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
+            {% endif %}
+            {% if page_type.farm %}
+            <h1>Фарм серебра World of Tanks</h1>
+            <p> FunPay предлагает услуги опытных игроков по фарму серебра в World of Tanks. Мы гарантируем вам безопасность всех сделок, выгодные цены и быстрое выполнение заказов!</p>
+            {% endif %}
 
+            {% if page_type.bonus_kod %}
+            <h1>Бонус-коды World of Tanks</h1>
+            <p>На бирже FunPay вы можете купить бонус-коды World of Tanks напрямую у игроков. Гарантируем безопасность ваших сделок и низкие цены. Только у нас стоимость бонус-кодов регулируется за счет естественной конкуренции, а продавцы получают оплату после выполнения заказов («подробнее»).</p>
+            {% endif %}
+            {% if page_type.lbz %}
+            <h1>Выполнение ЛБЗ World of Tanks</h1>
+            <p> Если вам требуется выполнение ЛБЗ World of Tanks — профессиональные драйверы биржи FunPay готовы помочь! Выбранный вами опытный геймер выполнит поставленное задание быстро и добросовестно, а система безопасности обеспечит максимальную защиту вашей сделки.</p>
+            {% endif %}
+            {% if page_type.other %}
+            <h1>Прочее World of Tanks</h1>
+            <p>Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
+            {% endif %}
         </div>
         <div class="btn-group">
-            <a href="415864">
+             <a href="/lots/account">
                 <button>Аккаунты</button>
             </a>
-            <a href="#">
+             <a href="/lots/bust">
                 <button>Буст</button>
-                </span></a>
-            <a href="#">
+            </a>
+            <a href="/lots/klan">
                 <button>Кланы</button>
             </a>
 
-            <a href="#">
+            <a href="/lots/farm">
                 <button>Фарм серебра</button>
             </a>
 
 
-            <a href="#">
+            <a href="/lots/bonus_kod">
                 <button>Бонус коды</button>
             </a>
 
 
-            <a href="#">
+            <a href="/lots/lbz">
                 <button>Выполнение ЛБЗ</button>
             </a>
 
 
-            <a href="#">
+            <a href="/lots/other">
                 <button>Прочее</button>
             </a>
 
-            <a href="#">
-                <button>Обучение</button>
-            </a>
             <br>
 
         </div>
@@ -90,10 +113,14 @@
                         class="sort-caret descending"></i></span></span>
             <span>Цена<span class="caret-wrapper"><i
                     class="sort-caret ascending"></i><i class="sort-caret descending"></i></span></span>
+                    <a href="/add_ad">
+                <button style="float:right;">Добавить объявление</button>
+            </a>
             </div>
+            {% if page_type.account %}
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/offer/62ce6a457d0c7450ddc825d7" class="pr-4 block w-full">
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
                 <div class="lot-title">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
                     <div>
@@ -124,7 +151,181 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
+            {% if page_type.bust %}
+           {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
 
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+            {% if page_type.lbz %}
+            {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+                    <div>
+                        Тип лбз: <b>{{ item.type_LBZ }}</b></div>
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% if page_type.klan %}
+            {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% if page_type.bonus_kod %}
+            {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+                    <div>
+                        Количество: <b>{{ item.count }}</b></div>
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% if page_type.other %}
+            {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% if page_type.farm %}
+            {% for item in ad %}
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+                <div class="lot-title">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                    <div>
+                        Сервер: <b>{{ item.server }}</b></div>
+
+                   <!----> <!----></div>
+            </a>
+                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="flex flex-col gap-1 md:items-end items-start justify-center">
+                            <div class="flex flex-row gap-2 items-center md:items-start justify-center"
+                                 style="font-size: 16px; line-height: 16px;"><a href="/profile/625f07881858e077f3187294"
+                                                                                class="k-a whitespace-nowrap">
+                                {{ item.trader_id }}
+                            </a> <!----></div> <!----></div>
+                        </div>
+                    <div class="whitespace-nowrap font-bold text-lg mt-3 flex flex-row items-center gap-1">
+                        {{ item.price }}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
             <!--				<span>{{ ad.short_desc }}</span>-->
             <!--				<span>{{ ad.full_desc }}</span>-->
             <!--				<span>{{ ad.type_ad }}</span>-->

@@ -4,6 +4,8 @@ from funct import *
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy as sa
 
+
+
 app = Flask(__name__)
 db = SQLAlchemy()
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sait.db"
@@ -35,26 +37,20 @@ class Ad_table(db.Model):
     price  =  db.Column(db.Integer)
     is_active = db.Column(db.Integer)
 
+@app.route("/lots/<type>")
+def test_page(type):
+    page = create_page_log(type)
+    data = db.session.query(Ad_table).filter_by(type_ad=type).all()
+    data = get_data(data)
+    return render_template("mainpage.html", ad=data, page_type=page)
 @app.route("/")
 def main_page():
-    data=db.session.query(Ad_table).all()
-    end_data_list = []
-    for post in data:
-        end_data_list.append( {"short_desc":post.short_desc,
-               "full_desc":post.full_desc,
-               "type_ad":post.type_ad,
-               "type_bust":post.type_bust,
-               "type_LBZ":post.type_LBZ,
-               "server":post.server,
-               "fights_count":post.fights_count,
-               "win_rait": post.win_rait,
-               "raiting": post.raiting,
-               "wn8": post.wn8,
-               "count": post.count,
-               "price": post.price,
-               "trader_id": post.trader_id,                })
-    print(data)
-    return render_template("mainpage.html", ad=end_data_list)
+
+    page = create_page_log('account')
+    data = db.session.query(Ad_table).filter_by(type_ad='account').all()
+    data = get_data(data)
+    return render_template("mainpage.html", ad=data, page_type=page)
+
 
 # with app.app_context(): #Создает базу данных
 #     db.create_all()
@@ -90,10 +86,75 @@ def register_page_add():
     return render_template("regist.html", is_exist=False, false_psw=True)
 
 
+@app.route("/lot_page/<uid>" )
+def lot_page(uid):
+    post = db.session.query(Ad_table).filter_by(uid=uid).first()
 
+    data = {
+               "uid":post.uid,
+               "short_desc":post.short_desc,
+               "full_desc":post.full_desc,
+               "type_ad":post.type_ad,
+               "type_bust":post.type_bust,
+               "type_LBZ":post.type_LBZ,
+               "server":post.server,
+               "fights_count":post.fights_count,
+               "win_rait": post.win_rait,
+               "raiting": post.raiting,
+               "wn8": post.wn8,
+               "count": post.count,
+               "price": post.price,
+               "trader_id": post.trader_id,                }
+    page = create_page_log(data["type_ad"])
+    return render_template("lot_page.html", data=data, page_type=page)
+@app.route("/add_ad" )
+def add_ad_page():
+    return render_template("add_ad.html")
+@app.route("/add_ad/created", methods = ["POST"])
+def add_ad_created_page():
+    data=request.form
+    page = ['bust', 'klan', 'other', 'farm']
+    if data['type_ad']=="bonus_kod":
+        post = Ad_table(
+                    short_desc=data["short_desc"],
+                    full_desc=data["full_desc"],
+                    count=data["count"],
+                    server=data["server"],
+                    type_ad=data["type_ad"],
+                    price=data["price"],
+                    trader_id=1000)
+    elif data['type_ad'] in page:
+        post = Ad_table(
+            short_desc=data["short_desc"],
+            full_desc=data["full_desc"],
+            server=data["server"],
+            type_ad=data["type_ad"],
+            price=data["price"],
+            trader_id=1000)
+    elif data['type_ad'] == "account":
+        post = Ad_table(
+            short_desc=data["short_desc"],
+            full_desc=data["full_desc"],
+            server=data["server"],
+            type_ad=data["type_ad"],
+            price=data["price"],
+            wn8=data["WN8"],
+            win_rait=data["win_rait"],
+            raiting=data["raiting"],
+            fights_count=data["fights_count"],
+            trader_id=1000)
+    elif data['type_ad'] == "lbz":
+        post = Ad_table(
+            type_LBZ = data["type_LBZ"],
+            short_desc=data["short_desc"],
+            full_desc=data["full_desc"],
+            server=data["server"],
+            type_ad=data["type_ad"],
+            price=data["price"],
+            trader_id=1000)
 
-
-
-
+    db.session.add(post)
+    db.session.commit()
+    return render_template("corect_add_ad.html")
 
 app.run(debug=True)
