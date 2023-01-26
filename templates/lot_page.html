@@ -17,18 +17,14 @@
 
 
     <div id="menu">
-        <div class="p_menu">
-            <br><a href="#" class="closing-button"><span>Главная</span></a><br>
-
-        </div>
+        <div class="p_menu"><img src="/static/css/img/1.jpg" alt="photo" style="height: 100px; weight: 300px; float: left;"></div>
+         <form action="/" method="post">
+          <div class="p_menu" style="height: auto;">
+            <br><input type="submit"  value="Главная" class="closing-button"><br>
+            <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+        </div></form>
         <div class="p_menu">
             <br><a href="page/page2.html" class="closing-button"><span>Сообщение</span></a><br>
-        </div>
-        <div class="p_menu">
-            <br><a href="purchases.html" class="closing-button"><span>Покупки</span></a><br>
-        </div>
-        <div class="p_menu">
-            <br><a href="sells.html" class="closing-button"><span>Продажи</span></a><br>
         </div>
         <div class="p_menu">
             <br><a href="" class="closing-button"><span>Финансы</span></a><br>
@@ -55,7 +51,7 @@
                             {% if page_type.account %}
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
+                                    <div class="param-item" style="margin: 3%;"><h5>Сервер</h5>
                                         <div class="text-bold">{{ data.server }}</div>
                                     </div>
                                 </div>
@@ -65,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
-                                    <div class="param-item"><h5>Процент побед</h5>
+                                    <div class="param-item" style="margin: 3%;"><h5>Процент побед</h5>
                                         <div class="text-bold">{{ data.win_rait }}</div>
                                     </div>
                                 </div>
@@ -75,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
-                                    <div class="param-item"><h5>WN8</h5>
+                                    <div class="param-item" style="margin: 3%;"><h5>WN8</h5>
                                         <div class="text-bold">{{ data.wn8 }}</div>
                                     </div>
                                 </div>
@@ -97,7 +93,7 @@
                             {% if page_type.bust %}
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
+                                    <div class="param-item" style="margin: 3%;"><h5>Сервер</h5>
                                         <div class="text-bold">{{ data.server }}</div>
                                     </div>
                                 </div>
@@ -116,6 +112,7 @@
                                 </div>
                             </div>
                             {% endif %}
+
                             {% if page_type.klan %}
                             <div class="row">
                                 <div class="col-xs-6">
@@ -137,6 +134,7 @@
                                     {{ data.price }} р
                                 </div>
                             </div>
+
                             {% endif %}
                             {% if page_type.farm %}
                             <div class="row">
@@ -260,6 +258,145 @@
 
                     </div>
                 </div>
+                <div class="chat">
+                    <style>
+                        @import url('https://fonts.googleapis.com/css?family=Lato');
+
+                * {
+                    box-sizing: border-box;
+                }
+
+
+
+                h2 {
+                    text-shadow: 1px 1px 2px rgba(0,0,0,1);
+                    color: #fff;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+
+                .chat-container {
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border-radius: 25px;
+                    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.7);
+                    overflow: hidden;
+                    padding: 15px;
+                    position: relative;
+                    width: 320px;
+                    max-width: 100%;
+                }
+
+                .chat {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .message {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-radius: 50px;
+                    box-shadow: 0px 15px 5px 0px rgba(0,0,0,0.5);
+                    position: relative;
+                    margin-bottom: 30px;
+                }
+
+                .message.left {
+                    padding: 15px 20px 15px 70px;
+                }
+
+                .message.right {
+                    align-self: flex-end;
+                    padding: 15px 70px 15px 20px;
+                }
+
+                .logo {
+                    border-radius: 50%;
+                    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.7);
+                    object-fit: cover;
+                    position: absolute;
+                    left: 10px;
+                    top: -10px;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .message.right .logo {
+                    left: auto;
+                    right: 10px;
+                }
+
+                .message p {
+                    margin: 0;
+                }
+
+                .text_input {
+                    font-size: 16px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 10px 15px;
+                    width: 100%;
+                }
+
+                footer {
+                    background-color: #222;
+                    color: #fff;
+                    font-size: 14px;
+                    bottom: 0;
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    z-index: 999;
+                }
+
+                footer p {
+                    margin: 10px 0;
+                }
+
+                footer i {
+                    color: red;
+                }
+
+                footer a {
+                    color: #3c97bf;
+                    text-decoration: none;
+                }
+                    </style>
+                    <h2>Weekly Coding Challenge #8 <br /> Chat Interface</h2>
+<div class="chat-container">
+	<ul class="chat">
+        {% for mes in messages %}
+
+		<li class="message left">
+			<img class="logo" src="https://randomuser.me/api/portraits/women/17.jpg" alt="">
+			<p>{{ mes.text }}</p>
+		</li>
+		<li class="message right">
+			<img class="logo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+			<p>{{ mes.text }}</p>
+		</li>
+		{% endfor %}
+	</ul>
+	<input type="text" class="text_input" placeholder="Message..."/>
+</div>
+
+<footer>
+	<p>
+		Created with <i class="fa fa-heart"></i> by
+		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+		- Read how I created this and how you can join the challenge
+		<a target="_blank" href="https://www.florin-pop.com/blog/2019/04/chat-interface/">here</a>
+	</p>
+</footer>
+                </div>
+
             </div>
         </div>
 

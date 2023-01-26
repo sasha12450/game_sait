@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+    <title>Вход</title>
+</head>
+<body>
+<form action="/user_enter/check" method="post">
+  <center><div class="container">
+      <div style="background: black;  width: 60%; color: white;background-color:rgba(0, 0, 0, 0.7) ; margin-top: 120px;">
+          <br>
+
+    <p>Email</p>
+    <input type="text" placeholder="Email" name="email" required>
+
+    <p>Пароль</p>
+    <input type="password" placeholder="Password" name="psw" required>
+
+
+     <div>
+         <p>Хотите <a href="/register">зарегистрироваться</a> ?</p>
+    {% if is_email_corect %}
+
+        <p style="color:red;">Такой email не совпадает или его не существует</p>
+
+    {% endif %}
+    {% if false_psw %}
+
+        <p style="color:red;">Пароли не совпадают</p>
+
+    {% endif %}
+     </div>
+
+<button type="submit" class="registerbtn">Войти</button></center>
+    </div >
+
+
+</div>
+</form>
+</body>
+</html>

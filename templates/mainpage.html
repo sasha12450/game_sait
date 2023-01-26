@@ -7,122 +7,176 @@
     <link rel="stylesheet" type="text/css" href="../static/css/1753aa1.css">
     <link rel="stylesheet" type="text/css" href="../static/css/3474654.css">
     <link rel="stylesheet" type="text/css" href="../static/css/b3592a7.css">
+    <link rel="script" type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div id="main">
-    <div id="header">
-        <h1>World of Tanks</h1>
-    </div>
+ <style type="text/css">
+   body {
+    font: 0.8em Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+
+    color: #ffe; /* Цвет текста */
+   }
+   a { color: #008BCE; /* Цвет ссылок */ }
+   #container {
+    width: 100%; /* Ширина макета */
+    margin: 0 auto; /* Выравниваем по центру */
+   }
+   #header {
+    font-size: 2.2em; /* Размер текста */
+    text-align: center; /* Выравнивание по центру */
 
 
-    <div id="menu">
+   }
+   #nav, #aside {
+    float: left; width: 20%; padding: 0%;
+   }
+   #content {
+    margin: 0 12%; /* Ширина колонок */
+    padding: 10px;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7) ;
+    color: white;
+   }
+   #aside {
+    float: right;
+   }
+   h2 { margin: 0 0 1em; }
+   #footer {
+    clear: both; /* Отменяем действие float */
+    padding: 5px; /* Отступы вокруг текста */
+
+   }
+  </style>
+  <div id="container">
+   <div id="header">   <div id="menu" style="margin: 1% 0px 0px 0px ">
+        <div class="p_menu"><img src="../static/css/img/logo.jpg" style="height: 100%; weight: 30%;"></div>
         <div class="p_menu">
-            <br><a href="#" class="closing-button"><span>Главная</span></a><br>
+            <br><a href="/" class="closing-button"><span>Главная</span></a><br>
 
         </div>
         <div class="p_menu">
             <br><a href="page/page2.html" class="closing-button"><span>Сообщение</span></a><br>
         </div>
         <div class="p_menu">
-            <br><a href="purchases.html" class="closing-button"><span>Покупки</span></a><br>
-        </div>
-        <div class="p_menu">
-            <br><a href="sells.html" class="closing-button"><span>Продажи</span></a><br>
-        </div>
-        <div class="p_menu">
             <br><a href="" class="closing-button"><span>Финансы</span></a><br>
         </div>
         <div class="p_menu">
-            <br><a href="/register" class="closing-button"><span>Вход</span></a><br>
+            {% if if_form %}
+            <br><a href="/user_profile/{{ user.uid }}" class="closing-button"><span>Профиль</span></a><br>
+            {% else %}
+            <br><a href="/register" class="closing-button"><span>Вход/Регистрация</span></a><br>
+            {% endif %}
         </div>
-    </div>
-    <div id="content">
+    </div></div>
+   <div id="nav">
+
+   </div>
+   <div id="aside">
+
+   </div>
+   <div id="content">
+    <div id="">
+
         <div>
             {% if page_type.account %}
-            <h1>Аккаунты World of Tanks</h1>
-            <p>Предлагаем вам аккаунты World of Tanks напрямую от игроков по самой низкой цене в Рунете. Получите лучшие
+            <h1 style="font-size: 30px;">Аккаунты World of Tanks</h1>
+            <p style="font-size: 16px;">Предлагаем вам аккаунты World of Tanks напрямую от игроков по самой низкой цене в Рунете. Получите лучшие
                 танки и достойную статистику без скучной прокачки и временных затрат! Все сделки на бирже FunPay
                 защищены гарантом. Нашим пользователям разрешено продавать аккаунты, полученные только легальным
                 путем.</p>
             {% endif %}
             {% if page_type.bust %}
-            <h1>Буст World of Tanks</h1>
-            <p>Предлагаем вам быстрый и эффективный буст аккаунтов WoT опытными драйверами по реальным рыночным ценам! С FunPay прокачка танков, поднятие статистики и ранговые бои превращаются в удовольствие, ведь вы получаете нужный результат в кратчайшие сроки. Мы гарантируем безопасность всех сделок.</p>
+            <h1 style="font-size: 30px;">Буст World of Tanks</h1>
+            <p style="font-size: 16px;">Предлагаем вам быстрый и эффективный буст аккаунтов WoT опытными драйверами по реальным рыночным ценам! С FunPay прокачка танков, поднятие статистики и ранговые бои превращаются в удовольствие, ведь вы получаете нужный результат в кратчайшие сроки. Мы гарантируем безопасность всех сделок.</p>
             {% endif %}
             {% if page_type.klan %}
-            <h1>Кланы World of Tanks</h1>
-            <p>Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
+            <h1 style="font-size: 30px;">Кланы World of Tanks</h1>
+            <p style="font-size: 16px;">Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
             {% endif %}
             {% if page_type.farm %}
-            <h1>Фарм серебра World of Tanks</h1>
-            <p> FunPay предлагает услуги опытных игроков по фарму серебра в World of Tanks. Мы гарантируем вам безопасность всех сделок, выгодные цены и быстрое выполнение заказов!</p>
+            <h1 style="font-size: 30px;">Фарм серебра World of Tanks</h1>
+            <p style="font-size: 16px;"> FunPay предлагает услуги опытных игроков по фарму серебра в World of Tanks. Мы гарантируем вам безопасность всех сделок, выгодные цены и быстрое выполнение заказов!</p>
             {% endif %}
 
             {% if page_type.bonus_kod %}
-            <h1>Бонус-коды World of Tanks</h1>
-            <p>На бирже FunPay вы можете купить бонус-коды World of Tanks напрямую у игроков. Гарантируем безопасность ваших сделок и низкие цены. Только у нас стоимость бонус-кодов регулируется за счет естественной конкуренции, а продавцы получают оплату после выполнения заказов («подробнее»).</p>
+            <h1 style="font-size: 30px;">Бонус-коды World of Tanks</h1>
+            <p style="font-size: 16px;">На бирже FunPay вы можете купить бонус-коды World of Tanks напрямую у игроков. Гарантируем безопасность ваших сделок и низкие цены. Только у нас стоимость бонус-кодов регулируется за счет естественной конкуренции, а продавцы получают оплату после выполнения заказов («подробнее»).</p>
             {% endif %}
             {% if page_type.lbz %}
-            <h1>Выполнение ЛБЗ World of Tanks</h1>
-            <p> Если вам требуется выполнение ЛБЗ World of Tanks — профессиональные драйверы биржи FunPay готовы помочь! Выбранный вами опытный геймер выполнит поставленное задание быстро и добросовестно, а система безопасности обеспечит максимальную защиту вашей сделки.</p>
+            <h1 style="font-size: 30px;">Выполнение ЛБЗ World of Tanks</h1>
+            <p style="font-size: 16px;"> Если вам требуется выполнение ЛБЗ World of Tanks — профессиональные драйверы биржи FunPay готовы помочь! Выбранный вами опытный геймер выполнит поставленное задание быстро и добросовестно, а система безопасности обеспечит максимальную защиту вашей сделки.</p>
             {% endif %}
             {% if page_type.other %}
-            <h1>Прочее World of Tanks</h1>
-            <p>Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
+            <h1 style="font-size: 30px;">Прочее World of Tanks</h1>
+            <p style="font-size: 16px;">Добро пожаловать на первую в рунете биржу игровых ценностей FunPay. Пришло время покупать напрямую у других игроков без лишних посредников и переплат! На нашем сайте продавцы получают оплату только после выполнения заказов (подробнее в разделе «Помощь»). Stay tuned!</p>
             {% endif %}
         </div>
         <div class="btn-group">
-             <a href="/lots/account">
-                <button>Аккаунты</button>
-            </a>
-             <a href="/lots/bust">
-                <button>Буст</button>
-            </a>
-            <a href="/lots/klan">
-                <button>Кланы</button>
-            </a>
 
-            <a href="/lots/farm">
-                <button>Фарм серебра</button>
-            </a>
+             <form action="/lots/account" method="post">
+                <input type="submit" value="Аккаунты" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
+            <form action="/lots/bust" method="post" class="btn-group">
+                 <input type="submit" value="Буст" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
 
 
-            <a href="/lots/bonus_kod">
-                <button>Бонус коды</button>
-            </a>
+            <form action="/lots/klan" method="post" >
+                 <input type="submit" value="Кланы" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
 
 
-            <a href="/lots/lbz">
-                <button>Выполнение ЛБЗ</button>
-            </a>
+            <form action="/lots/farm" method="post">
+                 <input type="submit" value="Фарм серебра" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
 
+            <form action="/lots/bonus_kod" method="post">
+                 <input type="submit" value="Бонус коды" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
 
-            <a href="/lots/other">
-                <button>Прочее</button>
-            </a>
+            <form action="/lots/lbz" method="post">
+                 <input type="submit" value="Выполнение ЛБЗ" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
+
+            <form action="/lots/other" method="post">
+                 <input type="submit" value="Прочее" style=" display: block; width: 10%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
+
 
             <br>
-
+                {% if if_form %}
+            <form action="/add_ad" method="post">
+                 <input type="submit" value="Добавить объявление" style="float: right;  display: block; width: 13%; background-color: grey; height: 40px">
+                 <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+             </form>
+            {% endif %}
         </div>
 
 
         <br>
         <div id="podl">
-            <div class="k-card space-x-2 p-1 px-4">
+
+            <div class="k-card space-x-2 p-1 px-4" style="text-decoration: none; ">
                 <span>Название<span class="caret-wrapper"><i class="sort-caret ascending"></i><i
                         class="sort-caret descending"></i></span></span>
             <span>Цена<span class="caret-wrapper"><i
                     class="sort-caret ascending"></i><i class="sort-caret descending"></i></span></span>
-                    <a href="/add_ad">
-                <button style="float:right;">Добавить объявление</button>
-            </a>
+
             </div>
             {% if page_type.account %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
+            <div class="flex justify-between items-top md:flex-row flex-col k-card" ><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2" style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                     <div>
@@ -156,8 +210,8 @@
            {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                    <!----> <!----></div>
@@ -185,8 +239,8 @@
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                     <div>
@@ -215,8 +269,8 @@
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                    <!----> <!----></div>
@@ -243,8 +297,8 @@
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                     <div>
@@ -273,8 +327,8 @@
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
                     href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                    <!----> <!----></div>
@@ -299,16 +353,21 @@
             {% endif %}
             {% if page_type.farm %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
-                <div class="lot-title">{{ item.short_desc }}</div>
-                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card">
+
+                <form action="/lot_page/{{ item.uid }}" method="post">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
+                <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
+                <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
 
-                   <!----> <!----></div>
-            </a>
-                <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
+                   </div>
+
+            </label>
+                         <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
                             <div class="flex flex-row gap-2 items-center md:items-start justify-center"
@@ -326,21 +385,19 @@
             </div>
             {% endfor %}
             {% endif %}
-            <!--				<span>{{ ad.short_desc }}</span>-->
-            <!--				<span>{{ ad.full_desc }}</span>-->
-            <!--				<span>{{ ad.type_ad }}</span>-->
-            <!--				<span>{{ ad.type_bust }}</span>-->
-            <!--				<span>{{ ad.type_LBZ }}</span>-->
-            <!--				<span>{{ ad.server }}</span>-->
-            <!--				<span>{{ ad.fights_count }}</span>-->
-            <!--				<span>{{ ad.win_rait }}</span>-->
-            <!--				<span>{{ ad.raiting }}</span>-->
-            <!--				<span>{{ ad.wn8 }}</span>-->
-            <!--				<span>{{ ad.count }}</span>-->
-            <!--				<span>{{ ad.price }}</span>-->
+
 
         </div>
     </div>
 </div>
+   </div>
+   <div id="footer"></div>
+  </div>
+<!--<div id="main">-->
+
+
+
+
+
 </body>
 </html>

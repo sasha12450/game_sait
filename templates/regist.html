@@ -18,13 +18,14 @@
     <p>Email</p>
     <input type="text" placeholder="Email" name="email" required>
 
-    <p>Пороль</p>
+    <p>Пароль</p>
     <input type="password" placeholder="Password" name="psw" required>
 
-    <p>Повторить пороль</p>
+    <p>Повторить пароль</p>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
      <div>
+         <p>У вас уже есть <a href="/user_enter">аккаунт</a> ?</p>
     {% if is_exist %}
 
         <p style="color:red;">Имя пользователя или email уже используется</p>
@@ -32,7 +33,7 @@
     {% endif %}
     {% if false_psw %}
 
-        <p style="color:red;">Пороли не совпадают</p>
+        <p style="color:red;">Пароли не совпадают</p>
 
     {% endif %}
      </div>

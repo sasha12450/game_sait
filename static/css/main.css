@@ -9734,14 +9734,6 @@ a.image-list-mini {
     }
 }
 
-.chat {
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    background: #fff;
-    margin-bottom: 18px
-}
 
 .chat-img {
     display: inline-block;
@@ -10972,7 +10964,9 @@ a.chat-clone {
 }
 
 .product-page .page-content {
-    padding-right: 12px
+    padding-right: 12px;
+    background-color:rgba(0, 0, 0, 0.6) ;
+    color: white;
 }
 
 @media (max-width: 767px) {
@@ -10987,8 +10981,8 @@ a.chat-clone {
 }
 
 .param-item {
-
-    margin-bottom: 25px
+    margin: 1.5%;
+    margin-bottom: 25px;
 
 }
 

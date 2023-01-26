@@ -5,14 +5,74 @@
 
     <title>Создание объявления</title>
 </head>
-<body>
-<div style="background: black;  width: 100%; color: white; background-color:rgba(0, 0, 0, 0.7) ;height: 400px;">
-<form action="/add_ad/created" method="post" style="margin: 15px 25px 35px 45px; ">
+ <style type="text/css">
+   body {
+    background-image: url(./static/css/img/add_ad.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    font: 0.8em Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+
+   }
+   a { color: #008BCE; /* Цвет ссылок */ }
+   #container {
+
+    width: 70%; /* Ширина макета */
+    margin: 0 auto; /* Выравниваем по центру */
+    color: white;
+    background-color:rgba(0, 0, 0, 0.7) ;
+   }
+   #header {
+    font-size: 2.2em; /* Размер текста */
+    text-align: center; /* Выравнивание по центру */
+    padding: 5px; /* Отступы вокруг текста */
+
+   }
+   #nav, #aside {
+    float: left; width: 35%; padding: 5px; margin: 10% 5%  -40% 10% ;
+   }
+   #content {
+
+    margin: 0 100px; /* Ширина колонок */
+    padding: 10px;
+   }
+   #aside {
+    float: right;
+    color: #000;
+   }
+   h2 { margin: 0 0 1em; }
+   #footer {
+    clear: both; /* Отменяем действие float */
+    padding: 5px; /* Отступы вокруг текста */
+
+
+   }
+  </style>
+ </head>
+ <body>
+  <div id="container" style="display: block;">
+
+
+   <div id="aside" style="color: white; font-size: 150%;">
+       <p>* Запрещено писать слова "Продам, Продаю" и похожие. </p>
+       <p> * Запрещено писать КАПСОМ</p>
+        <p>* Пишите описание такое, чтобы у покупателя не было лишних вопросов</p>
+        <p>* Цена указывается ваша, комиссия сервиса добавится автоматически</p>
+        <p>Помни!</p>
+        <p>Запрещено сообщать покупателю любые свои контакты. Если система определит что вы сообщили покупателю почту, мессенджер, номер телефона и т.д., ваш аккаунт будет заблокирован, а средства заморожены.
+        </p>
+   </div>
+   <div id="content">
+   <div style="margin: 30px 0px 30px 250px">
+
+<form action="/add_ad/created" method="post">
+    <div style="font-size: 150%">
     <br>
     <p>Короткое описание</p>
     <input type="text" name="short_desc" size="40" style="background: #25567B; height: 30px; color:#babcbb;">
     <br>
     <p>Сервер:  Тип объявления: </p>
+        <input type="hidden" name="secret_key" value="{{ secret_key }}">
     <select name="server" style="background: #66A3D2;">
         <option value="ru">Россия</option>
         <option value="eu">Европа</option>
@@ -30,19 +90,19 @@
         <option value="farm">Фарм</option>
         <option value="other">Прочее</option>
     </select>
+        <br>
     <br>
     <div class="user-box">
     ЛБЗ 1.0 <input type="radio" name="type_LBZ" value="1.0" >
     <br>
     ЛБЗ 2.0 <input type="radio" name="type_LBZ" value="2.0">
     <br>
-
-    Количество боев: <input type="text" name="fights_count" size="3" style="background: #25567B; color: white;">
-    Процент побед: <input type="text" name="win_rait" size="3" style="background: #25567B; color: white;">
-    WN8: <input type="text" name="WN8" size="3" style="background: #25567B; color: white;">
-    Рейтинг: <input type="text" name="raiting" size="3" style="background: #25567B; color: white;">
     <br>
-     <br>
+    Количество боев: <input type="text" name="fights_count" size="3" style="background: #25567B; color: white;"><br><br>
+    Процент побед: <input type="text" name="win_rait" size="3" style="background: #25567B; color: white;"><br><br>
+    Рейтинг: <input type="text" name="raiting" size="3" style="background: #25567B; color: white;"><br><br>
+        WN8: <input type="text" name="WN8" size="3" style="background: #25567B; color: white;"><br><br>
+
     Количество: <input type="text" name="count" size="3" style="background: #25567B; color: white;">
     Цена: <input type="text" name="price" size="3" style="background: #25567B; color: white;">
     <br>
@@ -54,18 +114,15 @@
      <br>
     </div>
 
-    <input type="submit" value="Отправить" style="background: #0B61A4;">
+    <input type="submit" value="Отправить" style="background: #0B61A4; height: 40%; width: 40%;">
+        </div>
+        </form>
 
+     </div>
+   </div>
+   <div id="footer">
 
-    <style>
-  body {
-    background-color: #033E6B;
-}
-
-
-
-    </style>
-    </div>
-</form>
-</body>
+   </div>
+  </div>
+ </body>
 </html>

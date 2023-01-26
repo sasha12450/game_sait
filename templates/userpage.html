@@ -1,20 +1,12 @@
-
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="../_static/css/style.css">
-	<title></title>
-</head>
-<body>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>home</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-<style type="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Профиль</title>
+  <style type="text/css">
    body {
-    background-image: url(../static/css/img/bg_3.jpg);
+    background-image: url(/static/css/img/bg_3.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
@@ -35,7 +27,7 @@
 	font-family: Italic,
    }
    #nav, #aside {
-    float: left; width: 11%; padding: 5px;
+    float: left; width: 110px; padding: 5px;
    }
    #content {
     background-color:rgba(0, 0, 0, 0.7) ;
@@ -137,11 +129,12 @@
  <body>
   <div id="container">
       <div id="header" style="margin: 1% 0px 0px 0px ">
-        <div class="p_menu"><img src="../static/css/img/1.jpg" style="height: 100px; weight: 300px; float: left;"></div>
-        <div class="p_menu" style="height: auto;">
-            <br><a href="#" class="closing-button"><span>Главная</span></a><br>
-
-        </div>
+        <div class="p_menu"><img src="/static/css/img/1.jpg" alt="photo" style="height: 100px; weight: 300px; float: left;"></div>
+         <form action="/" method="post">
+          <div class="p_menu" style="height: auto;">
+            <br><input type="submit"  value="Главная" class="closing-button"><br>
+            <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+        </div></form>
         <div class="p_menu">
             <br><a href="page/page2.html" class="closing-button"><span>Сообщение</span></a><br>
         </div>
@@ -149,20 +142,55 @@
             <br><a href="" class="closing-button"><span>Финансы</span></a><br>
         </div>
         <div class="p_menu">
-            <br><a href="/register" class="closing-button"><span>Профиль</span></a><br>
+
+            <br><a href="/user_profile/{{ user.uid }}" class="closing-button"><span>Профиль</span></a><br>
         </div>
     </div>
    <div id="nav">
-        <h1>Сообщение</h1>
+
    </div>
    <div id="aside">
-        выафвфвыаааааааааааааааааааааааааааааааааыаываваы
+
    </div>
    <div id="content" >
-    gdsssssssssssss
+    <div id="onefild">
+        <p style="font-size: 150%; margin: 1% 50% 10% 1%"><br>Ваш ник: {{ user.user_name }}<br>
+        Email: {{ user.email }}<br>
+         id: {{ user.uid }}
+         <br><br></p>
+    </div>
+       <div id="onefild" style="height: 50px;  margin: -7% 50% 0% 10%;">
+           <br>
+           <p style="font-size: 130%; margin: 0% 50% 10% 1%;" > Баланс: 0,00 ₽</p>
+    </div>
+       <div id="onefild">
+           <div style="margin: 1% 50% 10% 1%; height: auto;font-size: 120%">
+           <p style="padding-top: 16px;" >Мгновенные выплаты по 2.8% доступны только на карты РФ.</p>
+       <p>Карта привязывается на сайте эквайринга. Вводится только номер карты и срок годности, CVV не требуется.</p>
+       <p>Списать деньги никто не сможет, только осуществить перевод.</p>
+
+           <button class="favorite styled" type="button"> Привязать карту для вывода средств </button>
+
+       <p>Вывод на виртуальную карту QIWI Как открыть виртуальную карту?</p>
+       <p>Вывод на виртуальную карту ЮMoney Как открыть виртуальную карту?</p>
+       <p>Вывод средств в другие страны, через KoronaPay</p>
+       <p>Сейчас доступны переводы в следующие страны: Азербайджан, Беларусь, Вьетнам, Греция, Грузия, Израиль, Иордания, Казахстан, Корея, Кыргызстан, Молдова, Таджикистан, Турция, Узбекистан</p>
+           <button class="favorite styled" type="button"> Заказать вывод средств </button>
+       </div>
+           </div>
+
+       <div id="onefild" style="height: auto; margin: -5% 10% 5% 10%; ">
+       <p style="font-size: 110%" >Ваш аватар
+           <input name="myFile" type="file" multiple accept="image/*,image/jpeg"><br>
+           Ширина и высота не меньше 100px.<br>
+       Изображение не должно быть тяжелее: 300Кб. </p>
+    </div>
+       <div id="onefild" style="font-size: 120%">
+       Отзывы на продавца
+       Нет отзывов, купите и оставьте первый!
     </div>
    </div>
 
   </div>
-</body>
+ </body>
 </html>
