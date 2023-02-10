@@ -173,8 +173,10 @@
             </div>
             {% if page_type.account %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card" ><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card" ><form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2" style="text-decoration: none; color:#71ada3;">
                     <div>
@@ -187,7 +189,7 @@
                         Рейтинг WG: <b>{{ item.raiting }}</b></div>
                     <div>
                         Процент побед: <b>{{ item.win_rait }}</b></div> <!----> <!----></div>
-            </a>
+
                 <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -203,13 +205,17 @@
 
                     </div>
                 </div>
+                </label>
             </div>
             {% endfor %}
             {% endif %}
             {% if page_type.bust %}
            {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card">
+                <form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
@@ -231,14 +237,17 @@
 
                     </div>
                 </div>
+                </label>
             </div>
             {% endfor %}
 
             {% endif %}
             {% if page_type.lbz %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;;">
                     <div>
@@ -246,7 +255,7 @@
                     <div>
                         Тип лбз: <b>{{ item.type_LBZ }}</b></div>
                    <!----> <!----></div>
-            </a>
+
                 <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -262,19 +271,22 @@
 
                     </div>
                 </div>
+                </label>
             </div>
             {% endfor %}
             {% endif %}
             {% if page_type.klan %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                    <!----> <!----></div>
-            </a>
+
                 <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -290,13 +302,16 @@
 
                     </div>
                 </div>
+                </label>
             </div>
             {% endfor %}
             {% endif %}
             {% if page_type.bonus_kod %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card"><form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
@@ -304,7 +319,7 @@
                     <div>
                         Количество: <b>{{ item.count }}</b></div>
                    <!----> <!----></div>
-            </a>
+
                 <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -320,19 +335,23 @@
 
                     </div>
                 </div>
+                </label>
             </div>
             {% endfor %}
             {% endif %}
             {% if page_type.other %}
             {% for item in ad %}
-            <div class="flex justify-between items-top md:flex-row flex-col k-card"><a
-                    href="/lot_page/{{ item.uid }}" class="pr-4 block w-full">
+            <div class="flex justify-between items-top md:flex-row flex-col k-card">
+                    <form action="/lot_page/{{ item.uid }}">
+                    <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+                    <input type="submit" id="push-me" style="display:none" /></form>
+                <label for="push-me" class="pr-4 block w-full">
                 <div class="lot-title" style="text-decoration: none; color:#c9cac9;">{{ item.short_desc }}</div>
                 <div class="lot-about flex flex-col mt-2 md:flex-row md:space-x-2"  style="text-decoration: none; color:#71ada3;">
                     <div>
                         Сервер: <b>{{ item.server }}</b></div>
                    <!----> <!----></div>
-            </a>
+
                 <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -348,6 +367,7 @@
 
                     </div>
                 </div>
+                    </label>
             </div>
             {% endfor %}
             {% endif %}
@@ -355,7 +375,7 @@
             {% for item in ad %}
             <div class="flex justify-between items-top md:flex-row flex-col k-card">
 
-                <form action="/lot_page/{{ item.uid }}" method="post">
+                <form action="/lot_page/{{ item.uid }}">
                     <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
                     <input type="submit" id="push-me" style="display:none" /></form>
                 <label for="push-me" class="pr-4 block w-full">
@@ -366,7 +386,7 @@
 
                    </div>
 
-            </label>
+
                          <div class="mt-5 md:mt-0 flex flex-col justify-between md:items-end items-start">
                     <div class="flex flex-row-reverse md:flex-row">
                         <div class="flex flex-col gap-1 md:items-end items-start justify-center">
@@ -381,8 +401,11 @@
 
 
                     </div>
+
                 </div>
+                    </label>
             </div>
+
             {% endfor %}
             {% endif %}
 

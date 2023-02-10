@@ -158,6 +158,7 @@
         Email: {{ user.email }}<br>
          id: {{ user.uid }}
          <br><br></p>
+
     </div>
        <div id="onefild" style="height: 50px;  margin: -7% 50% 0% 10%;">
            <br>
@@ -188,6 +189,10 @@
        <div id="onefild" style="font-size: 120%">
        Отзывы на продавца
        Нет отзывов, купите и оставьте первый!
+           <form action="/chat" method="post">
+               <input type="hidden" name="{{ secret_key }}" value="{{ user.secret_key }}">
+               <input type="button" value="Открыть чат">
+           </form>
     </div>
    </div>
 

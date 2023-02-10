@@ -14,7 +14,7 @@ def page():
 
 @app.route("/add", methods= ["POST", "GET"])
 def page2():
-    data = request.args['a']
+    data = request.args['key']
     return data
 
 app.run()

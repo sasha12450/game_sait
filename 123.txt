@@ -1,0 +1,27 @@
+                            {% if page_type.bust %}
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="param-item"><h5>Сервер</h5>
+                                        <div class="text-bold">{{ data.server }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="param-item"><h5>Количество</h5>
+                                        <div class="text-bold">{{ data.count }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param-item"><h5>Краткое описание</h5>
+                                <div>{{ data.short_desc }}</div>
+                            </div>
+                            <div class="param-item"><h5>Подробное описание</h5>
+                                <div>
+                                    {{ data.full_desc }}
+                                </div>
+                            </div>
+                            <div class="param-item"><h5>Цена</h5>
+                                <div>
+                                    {{ data.price }} р
+                                </div>
+                            </div>
+                            {% endif %}

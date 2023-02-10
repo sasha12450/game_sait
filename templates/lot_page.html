@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../static/css/3474654.css">
     <link rel="stylesheet" type="text/css" href="../static/css/b3592a7.css">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../static/css/Сообщения.css" media="screen">
 </head>
 <body>
 <div id="main">
@@ -29,372 +31,452 @@
         <div class="p_menu">
             <br><a href="" class="closing-button"><span>Финансы</span></a><br>
         </div>
+        {% if authr %}
         <div class="p_menu">
-            <br><a href="/register" class="closing-button"><span>Вход</span></a><br>
+            <form action="/user_profile/{{ user.uid }}" method="post">
+          <div class="p_menu" style="height: auto;">
+            <br><input type="submit"  value="Профиль" class="closing-button"><br>
+            <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+        </div></form>
         </div>
+        {% else %}
+                <div class="p_menu">
+            <form action="/register" method="post">
+          <div class="p_menu" style="height: auto;">
+            <br><input type="submit"  value="Вход" class="closing-button"><br>
+            <input type="hidden" name="secret_key" value="{{ user.secret_key }}">
+        </div></form>
+        </div>
+        {% endif %}
     </div>
-    <div id="content">
-        <div class="product-page product-page-with-chat">
-            <div class="row">
-                <div class="col-md-2 col-sm-3">
-                    <div class="back-link">
-                        <a href="/lots/{{ data.type_ad }}" class="js-back-link"><i
-                                class="fa fa-chevron-left"></i><span class="inside">Вернутся назад</span></a>
+<section class="u-clearfix u-section-1" id="sec-90cd">
+
+      <div class="u-border-6 u-border-grey-dark-1 u-container-style u-group u-radius-15 u-shape-round u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <h4 class="u-text u-text-default u-text-1">Оформление заказа</h4>
+            {% if page.account %}
+          <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4">Количество боев:</h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;">{{ data.fights_count }}</span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6">Процент побед:</h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;">{{ data.win_rait }}%</span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8">Личный рейтинг:</h5>
+              <h6 class="u-text u-text-default u-text-9">{{ data.raiting }}</h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12">WN8:</h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;">{{ data.wn8 }}</span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.bust %}
+                      <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4"></h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.klan %}
+                          <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4"></h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.bonus_kod %}
+                      <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4">Штук:</h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;">{{ data.count }}</span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.lbz %}
+                      <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4">Тип ЛБЗ:</h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;">{{ data.type_LBZ }}</span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.other %}
+                      <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4"></h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% elif page.farm %}
+                      <div class="u-container-style u-group u-shape-rectangle u-group-2">
+            <div class="u-container-layout u-container-layout-2">
+              <h5 class="u-text u-text-default u-text-2">Сервер:</h5>
+              <h6 class="u-text u-text-default u-text-3">{{ data.server }}<span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-3">
+              <h5 class="u-text u-text-default u-text-4"></h5>
+              <h6 class="u-text u-text-default u-text-5">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-container-layout-4">
+              <h5 class="u-text u-text-default u-text-6"></h5>
+              <h6 class="u-text u-text-default u-text-7">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-5">
+            <div class="u-container-layout u-container-layout-5">
+              <h5 class="u-text u-text-default u-text-8"></h5>
+              <h6 class="u-text u-text-default u-text-9"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-6">
+            <div class="u-container-layout u-container-layout-6">
+              <h5 class="u-text u-text-default u-text-10"></h5>
+              <h6 class="u-text u-text-default u-text-11"></h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-7">
+            <div class="u-container-layout u-container-layout-7">
+              <h5 class="u-text u-text-default u-text-12"></h5>
+              <h6 class="u-text u-text-default u-text-13">
+                <span style="font-weight: 700;"></span>
+              </h6>
+            </div>
+          </div>
+            {% endif %}
+          <div class="u-container-style u-group u-shape-rectangle u-group-8">
+            <div class="u-container-layout u-container-layout-8">
+              <h5 class="u-text u-text-14">Короткое описание:</h5>
+              <h6 class="u-text u-text-15">
+                <span style="font-weight: 700;">
+                  <span style="font-weight: 400;"></span>
+                </span>{{ data.short_desc }}
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-9">
+            <div class="u-container-layout u-container-layout-9">
+              <h5 class="u-text u-text-16">Подробное описание:</h5>
+              <h6 class="u-text u-text-17">
+                <span style="font-weight: 700;"></span>{{ data.full_desc }}
+              </h6>
+            </div>
+          </div>
+          <div class="u-container-style u-group u-shape-rectangle u-group-10">
+            <div class="u-container-layout u-container-layout-10">
+              <h5 class="u-text u-text-default u-text-18">Цена:</h5>
+              <h6 class="u-text u-text-default u-text-19">{{ data.price }}</h6>
+            </div>
+          </div>
+          <a href="/" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Купить</a>
+        </div>
+      </div>
+      <h1 class="u-align-center u-text u-text-default u-text-20">Назад</h1>
+      <div class="u-container-style u-grey-10 u-group u-opacity u-opacity-80 u-group-11">
+     {% if authr %}
+      <div class="u-container-layout u-container-layout-11">
+          <div class="u-border-5 u-border-grey-dark-1 u-container-style u-expanded-width u-group u-radius-12 u-shape-round u-group-12">
+            <div class="u-container-layout u-container-layout-12">
+              <h5 class="u-text u-text-default u-text-21">Ник нейм пользователя</h5>
+              <h5 class="u-text u-text-custom-color-1 u-text-default u-text-22">Онлайн</h5>
+            </div>
+          </div><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+          <div class="u-blog u-blog-1">
+            <div class="u-repeater u-repeater-1"><!--blog_post-->
+              <div class="u-blog-post u-repeater-item">
+                <div class="u-container-layout u-similar-container u-container-layout-13">
+                  <div class="u-border-2 u-border-grey-dark-1 u-container-style u-expanded-width u-group u-radius-10 u-shape-round u-group-13">
+                    <div class="u-container-layout u-container-layout-14">
+                      <h5 class="u-text u-text-default u-text-23">Ник нейм пользователя<br>
+                      </h5>
+                      <h6 class="u-text u-text-default u-text-24">16:30</h6>
+                      <h5 class="u-text u-text-default u-text-25">Пример заголовка</h5>
                     </div>
+                  </div>
                 </div>
-                <div class="col-md-5 col-sm-9">
-                    <div class="page-content">
+              </div><!--/blog_post--><!--blog_post-->
+              <div class="u-blog-post u-repeater-item">
+                <div class="u-container-layout u-similar-container u-container-layout-15">
+                  <div class="u-border-2 u-border-grey-dark-1 u-container-style u-expanded-width u-group u-radius-10 u-shape-round u-group-14">
+                    <div class="u-container-layout u-container-layout-16">
+                      <h5 class="u-text u-text-default u-text-26"> Ник нейм пользователя</h5>
+                      <h6 class="u-text u-text-default u-text-27"> 16:30</h6>
+                      <h5 class="u-text u-text-default u-text-28">Пример заголовка</h5>
+                    </div>
+                  </div>
+                </div>
+              </div><!--/blog_post--><!--blog_post-->
+              <div class="u-blog-post u-repeater-item">
+                <div class="u-container-layout u-similar-container u-container-layout-17">
+                  <div class="u-border-2 u-border-grey-dark-1 u-container-style u-expanded-width u-group u-radius-10 u-shape-round u-group-15">
+                    <div class="u-container-layout u-container-layout-18">
+                      <h5 class="u-text u-text-default u-text-29"> Ник нейм пользователя<br>
+                      </h5>
+                      <h6 class="u-text u-text-default u-text-30"> 16:30</h6>
+                      <h5 class="u-text u-text-default u-text-31">Пример заголовка</h5>
+                    </div>
+                  </div>
+                </div>
+              </div><!--/blog_post-->
+            </div>
+          </div><!--/blog-->
+          <div class="u-form u-form-1">
+            <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="email">
+              <div class="u-form-group u-form-name u-label-none">
+                <label for="name-558c" class="u-form-control-hidden u-label"></label>
+                <input type="text" placeholder="Написать…" id="name-558c" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
+              </div>
+              <div class="u-form-group u-form-submit u-label-none">
+                <a href="#" class="u-btn u-btn-submit u-button-style">Отправить<br>
+                </a>
+                <input type="submit" value="submit" class="u-form-control-hidden">
+              </div>
+              <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+              <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
+              <input type="hidden" value="" name="recaptchaResponse">
+              <input type="hidden" name="formServices" value="75cbb351cbea57a80ad94f151aaa93ee">
+            </form>
+          </div>
+        </div>
+        {% endif %}
+      </div>
 
-                        <h1 style="font-size: 50px">Оформление заказа</h1>
-
-                        <div class="param-list">
-                            {% if page_type.account %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item" style="margin: 3%;"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div style="color: white;" class="param-item"><h5>Количество боёв</h5>
-                                        <div class="text-bold">{{ data.fights_count }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="param-item" style="margin: 3%;"><h5>Процент побед</h5>
-                                        <div class="text-bold">{{ data.win_rait }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Личный рейтинг</h5>
-                                        <div class="text-bold">{{ data.raiting }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="param-item" style="margin: 3%;"><h5>WN8</h5>
-                                        <div class="text-bold">{{ data.wn8 }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if page_type.bust %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item" style="margin: 3%;"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-                            {% endif %}
-
-                            {% if page_type.klan %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-
-                            {% endif %}
-                            {% if page_type.farm %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-                            {% endif %}
-                             {% if page_type.bonus_kod %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                             <div class="param-item"><h5>Количество</h5>
-                                 <div>{{ data.count }}</div>
-                             </div>
-
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if page_type.lbz %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Тип лбз</h5>
-                                        <div class="text-bold">{{ data.type_LBZ }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
+    </section>
 
 
-                            {% endif %}
-
-                            {% if page_type.other %}
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="param-item"><h5>Сервер</h5>
-                                        <div class="text-bold">{{ data.server }}</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="param-item"><h5>Краткое описание</h5>
-                                <div>{{ data.short_desc }}</div>
-                            </div>
-                            <div class="param-item"><h5>Подробное описание</h5>
-                                <div>
-                                    {{ data.full_desc }}
-                                </div>
-                            </div>
-                            <div class="param-item"><h5>Цена</h5>
-                                <div>
-                                    {{ data.price }} р
-                                </div>
-                            </div>
-
-
-                            {% endif %}
-                            <form action="/" >
-<!--                                кнопка для перехода на сайт оплаты-->
-
-
-
-
-                                <div class="form-group mb10">
-                                    <button type="submit" class="btn btn-primary btn-block">Купить</button>
-                                    <p style="font-size: 25px; color: grey;">Продавец не сможет получить оплату до тех пор, пока вы не
-                                        подтвердите выполнение им всех обязательств.</p>
-                                </div>
-                            </form>
                         </div>
 
-
                     </div>
                 </div>
-                <div class="chat">
-                    <style>
-                        @import url('https://fonts.googleapis.com/css?family=Lato');
-
-                * {
-                    box-sizing: border-box;
-                }
 
 
 
-                h2 {
-                    text-shadow: 1px 1px 2px rgba(0,0,0,1);
-                    color: #fff;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    text-align: center;
-                }
 
-                .chat-container {
-                    background-color: rgba(0, 0, 0, 0.4);
-                    border-radius: 25px;
-                    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.7);
-                    overflow: hidden;
-                    padding: 15px;
-                    position: relative;
-                    width: 320px;
-                    max-width: 100%;
-                }
 
-                .chat {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0;
-                }
 
-                .message {
-                    background-color: rgba(255, 255, 255, 0.9);
-                    border-radius: 50px;
-                    box-shadow: 0px 15px 5px 0px rgba(0,0,0,0.5);
-                    position: relative;
-                    margin-bottom: 30px;
-                }
 
-                .message.left {
-                    padding: 15px 20px 15px 70px;
-                }
 
-                .message.right {
-                    align-self: flex-end;
-                    padding: 15px 70px 15px 20px;
-                }
 
-                .logo {
-                    border-radius: 50%;
-                    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.7);
-                    object-fit: cover;
-                    position: absolute;
-                    left: 10px;
-                    top: -10px;
-                    width: 50px;
-                    height: 50px;
-                }
 
-                .message.right .logo {
-                    left: auto;
-                    right: 10px;
-                }
-
-                .message p {
-                    margin: 0;
-                }
-
-                .text_input {
-                    font-size: 16px;
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    padding: 10px 15px;
-                    width: 100%;
-                }
-
-                footer {
-                    background-color: #222;
-                    color: #fff;
-                    font-size: 14px;
-                    bottom: 0;
-                    position: fixed;
-                    left: 0;
-                    right: 0;
-                    text-align: center;
-                    z-index: 999;
-                }
-
-                footer p {
-                    margin: 10px 0;
-                }
-
-                footer i {
-                    color: red;
-                }
-
-                footer a {
-                    color: #3c97bf;
-                    text-decoration: none;
-                }
-                    </style>
-                    <h2>Weekly Coding Challenge #8 <br /> Chat Interface</h2>
-<div class="chat-container">
-	<ul class="chat">
-        {% for mes in messages %}
-
-		<li class="message left">
-			<img class="logo" src="https://randomuser.me/api/portraits/women/17.jpg" alt="">
-			<p>{{ mes.text }}</p>
-		</li>
-		<li class="message right">
-			<img class="logo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
-			<p>{{ mes.text }}</p>
-		</li>
-		{% endfor %}
-	</ul>
-	<input type="text" class="text_input" placeholder="Message..."/>
-</div>
-
-<footer>
-	<p>
-		Created with <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/04/chat-interface/">here</a>
-	</p>
-</footer>
                 </div>
 
             </div>

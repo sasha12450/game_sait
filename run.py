@@ -13,12 +13,18 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sait.db"
 db.init_app(app)
 #TODO Моя задача зкалючается сделать стиль на главной страницы, сделать логотип
 
+
+
+
 class Message(db.Model):
     uid = db.Column(db.Integer, primary_key=True)
+    chat_id = db.Column(db.Integer)
     from_id = db.Column(db.Integer)
     to_id = db.Column(db.Integer)
     time = db.Column(db.String)
     text = db.Column(db.String)
+
+
 
 class User(db.Model):
     uid = db.Column(db.Integer, primary_key=True)
@@ -46,16 +52,22 @@ class Ad_table(db.Model):
     is_active = db.Column(db.Integer)
 
 
-@app.route("/lots/<type>", methods=["POST","GET"])
-def test_page(type):
+@app.route("/lots/<type_>", methods=["POST","GET"])
+def test_page(type_):
+    try:
+        key = request.args['secret_key']
+    except:
+        key = None
+    # print(key, type(key))
     form_data=request.form.to_dict()
-    page = create_page_log(type)
-    data = db.session.query(Ad_table).filter_by(type_ad=type).all()
+    page = create_page_log(type_)
+    data = db.session.query(Ad_table).filter_by(type_ad=type_).all()
     data = get_data(data)
     if form_data['secret_key'] != "":
         user = db.session.query(User).filter_by(secret_key=form_data["secret_key"]).first()
         return render_template("mainpage.html", ad=data, page_type=page, if_form=form_data['secret_key'] != "", user=user)
-
+    elif key:
+        pass
     user = {"uid": 0}
     return render_template("mainpage.html", ad=data, page_type=page, if_form=form_data['secret_key'] != "", user=user)
 
@@ -76,11 +88,11 @@ def main_page():
     user ={"uid": 0}
     return render_template("mainpage.html", ad=data, page_type=page, if_form=False, user=user)
 
-#
+# #
 # with app.app_context(): #Создает базу данных
 #     db.create_all()
 
-@app.route("/register")
+@app.route("/register", methods=["POST", "GET"])
 def register_page():
     return render_template("regist.html", is_exist=False, false_psw=False)
 
@@ -103,7 +115,7 @@ def user_enter_check():
             return render_template("userpage.html", user=query)
         return render_template("user_enter.html", is_email_corect=False, false_psw=True)
 
-@app.route("/register/add", methods=["POST"])
+@app.route("/register/add", methods=["POST", "GET"])
 def register_page_add():
     data = {"user_name": request.form["user_name"],
             "email": request.form["email"],
@@ -136,6 +148,7 @@ def register_page_add():
 def lot_page(uid):
     form_data = request.args['secret_key']
     post = db.session.query(Ad_table).filter_by(uid=uid).first()
+    user = db.session.query(User).filter_by(secret_key=form_data).first()
 
     data = {
         "uid": post.uid,
@@ -153,14 +166,22 @@ def lot_page(uid):
         "price": post.price,
         "trader_id": post.trader_id, }
     page = create_page_log(data["type_ad"])
+    print(data)
     messages = []
-    return render_template("lot_page.html", data=data, page_type=page, messages = messages, secret_key=form_data)
+    if user == None:
+        user = {"secret_key": "0"}
+        return render_template("lot_page.html", data=data, page=page, messages = messages, secret_key=form_data, user=user, authr = False)
+    chats = db.session.query(User).filter_by(chat_id = data["uid"], from_id = user.uid, to_id = data["trader_id"].all()
+    if data["trader_id"]
+    return render_template("lot_page.html", data=data, page=page, messages = messages, secret_key=form_data, user=user, authr = True)
 
 
 @app.route("/add_ad", methods=["POST","GET"])
 def add_ad_page():
     form_data=request.form.to_dict()
     return render_template("add_ad.html", secret_key=form_data["secret_key"])
+
+
 
 
 @app.route("/add_ad/created", methods=["POST"])
@@ -211,9 +232,13 @@ def add_ad_created_page():
     db.session.add(post)
     db.session.commit()
     return render_template("corect_add_ad.html", secret_key=user.secret_key)
+@app.route("/chat", methods=["POST", "GET"])
+def chat():
+    data = request.form
+    user = db.session.query(User).filter_by(secret_key=data["secret_key"]).first()
+    return render_template("chat.html", user=user)
 
-
-@app.route("/user_profile/<uid>")
+@app.route("/user_profile/<uid>", methods=["POST", "GET"])
 def user_profile(uid):
     user = db.session.query(User).filter_by(uid=int(uid)).first()
 
